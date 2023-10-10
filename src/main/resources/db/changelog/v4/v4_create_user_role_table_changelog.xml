@@ -1,0 +1,42 @@
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+  <changeSet id="v4" author="Ivan Fadeev">
+    <preConditions onFail="MARK_RAN">
+      <not>
+        <tableExists tableName="user_role"/>
+      </not>
+    </preConditions>
+
+    <createTable tableName="user_role">
+      <column name="user_id" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+      <column name="role_id" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="foreign_key_to_user_id_from_user_role" author="Ivan Fadeev">
+    <preConditions onFail="MARK_RAN">
+      <tableIsEmpty tableName="user_role"/>
+    </preConditions>
+
+    <addForeignKeyConstraint baseTableName="user_role" baseColumnNames="user_id" constraintName="fk_user_id"
+      referencedTableName="users" referencedColumnNames="id"/>
+  </changeSet>
+
+  <changeSet id="foreign_key_to_role_id_from_user_role" author="Ivan Fadeev">
+    <preConditions onFail="MARK_RAN">
+      <tableIsEmpty tableName="user_role"/>
+    </preConditions>
+
+    <addForeignKeyConstraint baseTableName="user_role" baseColumnNames="role_id" constraintName="fk_role_id"
+      referencedTableName="roles" referencedColumnNames="id"/>
+  </changeSet>
+
+
+</databaseChangeLog>

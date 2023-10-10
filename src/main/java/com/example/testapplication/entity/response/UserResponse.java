@@ -18,6 +18,6 @@ public class UserResponse {
     private String name;
     private String email;
     private Timestamp createdAt;
-    private List<Role> roles;
-    private List<Phone> phones;
+    private List<RoleResponse> roles;
+    private List<PhoneResponse> phones;
 }

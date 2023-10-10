@@ -1,8 +1,5 @@
 package com.example.testapplication.entity.request;
 
-import com.example.testapplication.entity.Phone;
-import com.example.testapplication.entity.Role;
-import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,9 +9,6 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserRequest {
+public class RoleRequest {
   private String name;
-  private String email;
-  private List<RoleRequest> roles;
-  private List<PhoneRequest> phones;
 }

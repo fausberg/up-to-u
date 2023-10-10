@@ -2,6 +2,7 @@ package com.example.testapplication.entity;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,6 +14,7 @@ import java.sql.Timestamp;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
@@ -33,6 +35,7 @@ public class Phone {
   @Column(name = "created_at")
   private Timestamp createdAt;
 
+  @JsonIgnore
   @ManyToOne()
   @JoinColumn(name = "user_id")
   private User user;
