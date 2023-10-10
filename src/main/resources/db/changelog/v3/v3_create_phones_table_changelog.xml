@@ -48,7 +48,7 @@
     </preConditions>
 
     <addForeignKeyConstraint baseTableName="phones" baseColumnNames="user_id" constraintName="fk_user_id"
-      referencedTableName="users" referencedColumnNames="id"/>
+      referencedTableName="users" referencedColumnNames="id" onDelete="CASCADE" onUpdate="CASCADE"/>
     </changeSet>
 
 
