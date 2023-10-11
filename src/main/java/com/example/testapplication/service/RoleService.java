@@ -4,7 +4,7 @@ import static com.example.testapplication.exception.massage.RoleExceptionMassage
 import static java.lang.String.format;
 
 import com.example.testapplication.entity.Role;
-import com.example.testapplication.entity.request.RoleRequest;
+import com.example.testapplication.request.RoleRequest;
 import com.example.testapplication.mapper.RoleMapper;
 import com.example.testapplication.repository.RoleRepository;
 import jakarta.persistence.EntityNotFoundException;

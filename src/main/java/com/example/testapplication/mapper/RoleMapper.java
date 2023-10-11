@@ -1,10 +1,9 @@
 package com.example.testapplication.mapper;
 
 import com.example.testapplication.entity.Role;
-import com.example.testapplication.entity.request.RoleRequest;
-import com.example.testapplication.entity.response.RoleResponse;
-import java.sql.Timestamp;
-import java.time.Instant;
+import com.example.testapplication.request.RoleRequest;
+import com.example.testapplication.response.RoleResponse;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Component;
@@ -15,7 +14,7 @@ public class RoleMapper {
   public Role toRole(RoleRequest request) {
     return Role.builder()
         .name(request.getName())
-        .createdAt(Timestamp.from(Instant.now()))
+        .createdAt(LocalDateTime.now())
         .build();
   }
 

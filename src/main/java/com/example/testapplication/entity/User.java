@@ -1,7 +1,6 @@
 package com.example.testapplication.entity;
 
-import static jakarta.persistence.FetchType.EAGER;
-import static jakarta.persistence.GenerationType.IDENTITY;
+import static jakarta.persistence.FetchType.LAZY;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -15,23 +14,30 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 @Table(name = "users")
 public class User {
 
   @Id
-  @GeneratedValue(strategy = IDENTITY)
-  private Long id;
+  @GeneratedValue(generator = "uuid2")
+  @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
+  @Column(columnDefinition = "BINARY(16)")
+  private UUID id;
 
   @Column(name = "name")
   private String name;
@@ -40,9 +46,9 @@ public class User {
   private String email;
 
   @Column(name = "created_at")
-  private Timestamp createdAt;
+  private LocalDateTime createdAt;
 
-  @ManyToMany(fetch = EAGER)
+  @ManyToMany(fetch = LAZY)
   @JoinTable(
       name = "user_role",
       joinColumns = @JoinColumn(name = "user_id"),

@@ -5,22 +5,17 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.example.testapplication.config.TestConfig;
 import com.example.testapplication.entity.User;
-import com.example.testapplication.entity.request.PhoneRequest;
-import com.example.testapplication.entity.request.RoleRequest;
-import com.example.testapplication.entity.request.UserRequest;
 import com.example.testapplication.repository.UserRepository;
-import com.example.testapplication.service.PhoneService;
-import com.example.testapplication.service.RoleService;
-import com.example.testapplication.service.UserService;
+import com.example.testapplication.request.PhoneRequest;
+import com.example.testapplication.request.RoleRequest;
+import com.example.testapplication.request.UserRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.sql.Timestamp;
-import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import org.junit.Test;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -32,20 +27,11 @@ import org.springframework.test.web.servlet.MockMvc;
 @SpringBootTest(classes = TestConfig.class)
 @AutoConfigureMockMvc(printOnlyOnFailure = false)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-@TestPropertySource("/application.properties")
+@TestPropertySource("/application.yml")
 public class UserTest {
 
   @Autowired
   private MockMvc mockMvc;
-
-  @Autowired
-  private UserService userService;
-
-  @Autowired
-  private PhoneService phoneService;
-
-  @Autowired
-  private RoleService roleService;
 
   @Autowired
   private UserRepository userRepository;
@@ -70,8 +56,7 @@ public class UserTest {
         .roles(roleRequests)
         .build();
     user = User.builder()
-        .id(100L)
-        .createdAt(Timestamp.from(Instant.now()))
+        .createdAt(LocalDateTime.now())
         .email("qwe")
         .name("name")
         .build();
@@ -81,7 +66,7 @@ public class UserTest {
   @Test
   public void shouldGetUserWithId100() throws Exception {
     mockMvc.perform(get("/user/{id}", 1)
-        .contentType(MediaType.APPLICATION_JSON))
+            .contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
         .andExpect(content().json("{\"id\":1,\"name\":\"name\",\"email\":\"qwe\",\"createdAt\":\"2023-10-10T12:54:57.384+00:00\",\"roles\":[],\"phones\":[]}"));
   }

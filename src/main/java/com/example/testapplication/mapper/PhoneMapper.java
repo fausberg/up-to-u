@@ -2,10 +2,9 @@ package com.example.testapplication.mapper;
 
 import com.example.testapplication.entity.Phone;
 import com.example.testapplication.entity.User;
-import com.example.testapplication.entity.request.PhoneRequest;
-import com.example.testapplication.entity.response.PhoneResponse;
-import java.sql.Timestamp;
-import java.time.Instant;
+import com.example.testapplication.request.PhoneRequest;
+import com.example.testapplication.response.PhoneResponse;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Component;
@@ -17,7 +16,7 @@ public class PhoneMapper {
     return Phone.builder()
         .phone(request.getPhone())
         .user(user)
-        .createdAt(Timestamp.from(Instant.now()))
+        .createdAt(LocalDateTime.now())
         .build();
   }
 

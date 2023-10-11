@@ -1,4 +1,4 @@
-package com.example.testapplication.entity.request;
+package com.example.testapplication.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

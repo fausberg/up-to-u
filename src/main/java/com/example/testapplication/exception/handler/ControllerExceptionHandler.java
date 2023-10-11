@@ -3,7 +3,7 @@ package com.example.testapplication.exception.handler;
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
-import com.example.testapplication.entity.response.ErrorResponse;
+import com.example.testapplication.response.ErrorResponse;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;

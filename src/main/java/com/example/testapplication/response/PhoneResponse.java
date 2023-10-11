@@ -1,4 +1,4 @@
-package com.example.testapplication.entity.response;
+package com.example.testapplication.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class RoleResponse {
+public class PhoneResponse {
 
-  private String name;
+  private String phone;
 }

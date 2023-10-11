@@ -1,4 +1,4 @@
-package com.example.testapplication.config;
+package com.example.testapplication.controller;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
@@ -39,5 +39,3 @@ public class TestConfig {
 
   }
 }
-
-

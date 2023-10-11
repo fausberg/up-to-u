@@ -1,7 +1,5 @@
-package com.example.testapplication.entity.request;
+package com.example.testapplication.request;
 
-import com.example.testapplication.entity.Phone;
-import com.example.testapplication.entity.Role;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

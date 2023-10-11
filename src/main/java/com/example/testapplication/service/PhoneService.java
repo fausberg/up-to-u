@@ -1,7 +1,7 @@
 package com.example.testapplication.service;
 
 import com.example.testapplication.entity.User;
-import com.example.testapplication.entity.request.PhoneRequest;
+import com.example.testapplication.request.PhoneRequest;
 import com.example.testapplication.mapper.PhoneMapper;
 import com.example.testapplication.repository.PhoneRepository;
 import java.util.List;

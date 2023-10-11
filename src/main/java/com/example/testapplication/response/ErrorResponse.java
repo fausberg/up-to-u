@@ -1,4 +1,4 @@
-package com.example.testapplication.entity.request;
+package com.example.testapplication.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,6 +9,14 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class RoleRequest {
-  private String name;
+public class ErrorResponse {
+
+  private int statusCode;
+
+  private String massage;
+
+  private String description;
+
+
+
 }

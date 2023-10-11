@@ -1,9 +1,9 @@
-package com.example.testapplication.entity.response;
+package com.example.testapplication.response;
 
-import com.example.testapplication.entity.Phone;
-import com.example.testapplication.entity.Role;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,10 +14,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserResponse {
-    private Long id;
+    private UUID id;
     private String name;
     private String email;
-    private Timestamp createdAt;
+    private LocalDateTime createdAt;
     private List<RoleResponse> roles;
     private List<PhoneResponse> phones;
 }

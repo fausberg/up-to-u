@@ -1,12 +1,11 @@
 package com.example.testapplication.mapper;
 
-import com.example.testapplication.entity.Phone;
+import com.example.testapplication.entity.Role;
 import com.example.testapplication.entity.User;
-import com.example.testapplication.entity.request.PhoneRequest;
-import com.example.testapplication.entity.request.UserRequest;
-import com.example.testapplication.entity.response.UserResponse;
-import java.sql.Timestamp;
-import java.time.Instant;
+import com.example.testapplication.request.UserRequest;
+import com.example.testapplication.response.UserResponse;
+import java.time.LocalDateTime;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -28,12 +27,12 @@ public class UserMapper {
         .build();
   }
 
-  public User toUser(UserRequest userRequest) {
+  public User toUser(UserRequest userRequest, List<Role> roles) {
     return User.builder()
         .name(userRequest.getName())
         .email(userRequest.getEmail())
-        .createdAt(Timestamp.from(Instant.now()))
-        .createdAt(Timestamp.from(Instant.now()))
+        .roles(roles)
+        .createdAt(LocalDateTime.now())
         .build();
   }
 
