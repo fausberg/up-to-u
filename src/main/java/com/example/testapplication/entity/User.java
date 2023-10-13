@@ -1,5 +1,6 @@
 package com.example.testapplication.entity;
 
+import static jakarta.persistence.FetchType.EAGER;
 import static jakarta.persistence.FetchType.LAZY;
 
 import jakarta.persistence.CascadeType;
@@ -22,10 +23,12 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Builder
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -58,6 +61,6 @@ public class User {
   @OneToMany(
       mappedBy = "user",
       cascade = CascadeType.ALL,
-      fetch = FetchType.LAZY)
+      fetch = LAZY)
   private List<Phone> phones;
 }

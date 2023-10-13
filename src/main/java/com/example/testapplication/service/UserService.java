@@ -1,8 +1,6 @@
 package com.example.testapplication.service;
 
 import static com.example.testapplication.exception.massage.UserExceptionMassage.USER_IS_EXIST;
-import static com.example.testapplication.exception.massage.UserExceptionMassage.USER_IS_PRESENT;
-import static com.example.testapplication.exception.massage.UserExceptionMassage.USER_NOT_FOUND_EXCEPTION;
 import static java.lang.String.format;
 
 import com.example.testapplication.entity.Role;
@@ -38,7 +36,7 @@ public class UserService {
     phoneService.createPhone(userRequest.getPhones(), findUserByEmailOrThrowException(userRequest.getEmail()));
   }
 
-  public UserResponse getUserById(String email) {
+  public UserResponse getUserByEmail(String email) {
     return userMapper.toUserResponse(findUserByEmailOrThrowException(email));
   }
 
