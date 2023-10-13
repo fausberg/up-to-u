@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:${spring.datasource.database.port}/${spring.datasource.database.name}
+    username: postgres
+    password: root
+    database:
+      port: 5432
+      name: test-application
+    hikari:
+      schema: quick_entry
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  liquibase:
+    change-log: db/changelog/db.changelog-master.xml
+
+
+
+
+
